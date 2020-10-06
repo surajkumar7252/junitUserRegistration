@@ -3,7 +3,7 @@
 
 //User Registration Program
 
-//Use case 1 i.e. Checking for the correct First Name.
+//Use case 2 i.e. Checking for the correct Last Name.
 
 
 package userregistrationday6.userregistration;
@@ -17,34 +17,34 @@ import java.util.Scanner;
 public class UserRegistrationDay6 {
 	private final static Logger logger=LogManager.getLogger(UserRegistrationDay6.class);
 	
-	private Pattern firstNamePattern;
+	private Pattern lastNamePattern;
 	private Matcher matchPattern;
 	
 	static Scanner sc= new Scanner(System.in);
 	
-	private static final String CHECK_FIRST_NAME_TEMPLATE ="^[A-Za-z0-9]{3,25}$";
+	private static final String CHECK_LAST_NAME_TEMPLATE ="^[A-Za-z0-9]{3,25}$";
 	
 	public UserRegistrationDay6(){
 		
-		firstNamePattern=Pattern.compile(CHECK_FIRST_NAME_TEMPLATE);
+		lastNamePattern=Pattern.compile(CHECK_LAST_NAME_TEMPLATE);
 		}
 
-	public boolean check( String firstName)
+	public boolean check( String lastName)
 	{
-		matchPattern=firstNamePattern.matcher(firstName);
+		matchPattern=lastNamePattern.matcher(lastName);
 		return matchPattern.matches();
 	}
 	
 	public static void main(String[] args) {
-		logger.info("Enter the first name: ");
-		String firstName=sc.nextLine();
-		UserRegistrationDay6 firstNameCheck = new UserRegistrationDay6();
-		boolean value=firstNameCheck.check(firstName);
+		logger.info("Enter the last name: ");
+		String lastName=sc.nextLine();
+		UserRegistrationDay6 lastNameCheck = new UserRegistrationDay6();
+		boolean value=lastNameCheck.check(lastName);
 		if(value) {
-			logger.info("First Name is correct");
+			logger.info("Last Name is correct");
 		}
 		else if(!value) {
-			logger.info("You entered a Wrong First Name.");
+			logger.info("You entered a Wrong Last Name.");
 			
 		}
 			
